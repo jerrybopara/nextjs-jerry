@@ -23,8 +23,8 @@ jobs:
           REMOTE_USER: ${{ secrets.USERNAME }}
           TARGET: ${{ secrets.TARGET_DIR }}
 
-      - name: npm install, build, and test
-        run: |
-          npm ci
-          npm run build --if-present
-          npm start
+      - name: Setup execute permission
+        run: ssh ${{ secrets.USERNAME }}@${{ secrets.HOST_DNS }} chmod u+x pm2_start.sh
+
+      - name: npm install, build
+        run: ssh ${{ secrets.USERNAME }}@${{ secrets.HOST_DNS }} bash pm2_start.sh

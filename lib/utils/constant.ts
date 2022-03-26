@@ -1,6 +1,6 @@
 export const SERVER_BASE_URL = `http://localhost:3000/api`;
 
-export const APP_NAME = `conduit Jerry Bopara`;
+export const APP_NAME = `conduit Jerry Bopara - By Github Action`;
 
 export const ARTICLE_QUERY_MAP = {
   "tab=feed": `${SERVER_BASE_URL}/articles/feed`,

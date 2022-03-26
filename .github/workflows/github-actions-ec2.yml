@@ -24,7 +24,7 @@ jobs:
           TARGET: ${{ secrets.TARGET_DIR }}
 
       - name: Setup execute permission
-        run: ssh ${{ secrets.USERNAME }}@${{ secrets.HOST_DNS }} chmod u+x pm2_start.sh
+        run: ssh ${{ secrets.USERNAME }}@${{ secrets.HOST_DNS }} chmod u+x ${{ secrets.TARGET_DIR }}/pm2_start.sh
 
       - name: npm install, build
-        run: ssh ${{ secrets.USERNAME }}@${{ secrets.HOST_DNS }} bash pm2_start.sh
+        run: ssh ${{ secrets.USERNAME }}@${{ secrets.HOST_DNS }} bash ${{ secrets.TARGET_DIR }}/pm2_start.sh

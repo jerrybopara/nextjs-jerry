@@ -28,5 +28,6 @@ jobs:
           SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
           REMOTE_HOST: ${{ secrets.HOST_DNS }}
           REMOTE_USER: ${{ secrets.USERNAME }}
-          TARGET: ${{ secrets.TARGET_DIR }} 
-        run: ssh ${{ secrets.USERNAME }}@${{ secrets.HOST_DNS }} bash ${{ secrets.TARGET_DIR }}/pm2_start.sh
+          TARGET: ${{ secrets.TARGET_DIR }}
+
+        run: ssh $REMOTE_USER@$REMOTE_HOST bash $TARGET/pm2_start.sh

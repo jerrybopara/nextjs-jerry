@@ -26,5 +26,6 @@ jobs:
       - name: npm install, build, and test
         run: |
           npm install 
-          npm run build --if-present
+          npm run build
+          pm2 --name next-realworld-example-app start npm -- start
     

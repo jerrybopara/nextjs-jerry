@@ -21,5 +21,6 @@ jobs:
           script: |
             whoami
             ls -al
+            sh deploy.sh
           # script: sh deploy.sh
           # script: echo "Hii" >> /home/ubuntu/next-js/hello.txt

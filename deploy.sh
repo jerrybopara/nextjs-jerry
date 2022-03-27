@@ -1,5 +1,5 @@
 echo "Kill all the running PM2 actions"
-sudo pm2 kill
+pm2 kill
 
 echo "Jump to app folder"
 cd /home/ubuntu/next-js/
@@ -8,7 +8,7 @@ cd /home/ubuntu/next-js/
 # git pull
 
 echo "Install app dependencies"
-sudo rm -rf node_modules package-lock.json
+rm -rf node_modules package-lock.json
 npm install
 # npm audit fix --force
 

@@ -8,25 +8,14 @@ on:
 
 jobs:
   deploy:
-    name: Deploy to EC2
+    name: Deploy to Ec2 
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout the files
-        uses: actions/checkout@v2
-
-      - name: Deploy to Jerry - LightSail
-        uses: easingthemes/ssh-deploy@main
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
-          REMOTE_HOST: ${{ secrets.HOST_DNS }}
-          REMOTE_USER: ${{ secrets.USERNAME }}
-          TARGET: ${{ secrets.TARGET_DIR }}
-
-      - name: npm install, build, and test
-        run: |
-          npm install 
-          npm install pm2 -g
-          npm run build
-          pm2 --name next-realworld-example-app start npm -- start
-    
+      - name: executing remote ssh commands using ssh key
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST_DNS }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: sh deploy.sh

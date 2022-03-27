@@ -1,0 +1,16 @@
+{
+  "apps" : [
+     {
+        "name"          : "next-realworld-example-app",
+        "script"        : "npm",
+        "args"          : "run start",
+        "watch"         : false,
+        "cwd"           : "/home/ubuntu/next-js/",
+        "out_file"      : "/home/ubuntu/github_actions.out.log",
+        "err_file"      : "/home/ubuntu/github_actions.err.log",
+        "merge_logs"    : true,
+        "instances"     : 1,
+        "exec_mode"     : "cluster"
+     }
+  ]
+}

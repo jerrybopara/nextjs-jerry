@@ -9,11 +9,12 @@ cd /home/ubuntu/next-js/
 
 echo "Install app dependencies"
 sudo rm -rf node_modules package-lock.json
-sudo npm install
+npm install
+# npm audit fix --force
 
 echo "Build your app"
-sudo npm run build
+npm run build
 
 echo "Run new PM2 action"
 # sudo cp /home/ubuntu/ecosystem.json ecosystem.json
-sudo pm2 start ecosystem.json
+pm2 start ecosystem.json

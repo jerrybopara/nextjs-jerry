@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout the files
+      - name: Checkout Git Repo Code.
         uses: actions/checkout@v2
 
       - name: Deploy to Jerry - LightSail
@@ -30,5 +30,5 @@ jobs:
           username: ${{ secrets.AWS_USER }}
           key: ${{ secrets.AWS_KEY }}
           script: |
-            ls -al /home/ubuntu/next-js
+            # ls -al /home/ubuntu/next-js
             sh /home/ubuntu/next-js/deploy.sh

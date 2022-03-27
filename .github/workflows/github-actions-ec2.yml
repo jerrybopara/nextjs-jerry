@@ -32,5 +32,3 @@ jobs:
           script: |
             ls -al /home/ubuntu/next-js
             sh /home/ubuntu/next-js/deploy.sh
-          # script: sh deploy.sh
-          # script: echo "Hii" >> /home/ubuntu/next-js/hello.txt

@@ -9,12 +9,12 @@ cd /home/ubuntu/next-js/
 
 echo "Install app dependencies"
 rm -rf node_modules package-lock.json
-npm install
-# npm audit fix --force
+yarn # Install dependencies
 
 echo "Build your app"
-npm run build
+yarn build # build our app for production
+
+yarn global add pm2 # install pm2 to keep next app active forever
 
 echo "Run new PM2 action"
-# sudo cp /home/ubuntu/ecosystem.json ecosystem.json
-pm2 start ecosystem.json
+pm2 start npm --name "nextapp" -- start # start next app

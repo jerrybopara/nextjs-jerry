@@ -16,5 +16,8 @@ yarn build # build our app for production
 
 yarn global add pm2 # install pm2 to keep next app active forever
 
+echo "Change Permissions."
+chown -R ubuntu:ubuntu /home/ubuntu/next-js
+
 echo "Run new PM2 action"
 pm2 start npm --name "nextapp" -- start # start next app

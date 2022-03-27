@@ -29,6 +29,6 @@ jobs:
           host: ${{ secrets.AWS_HOST }}
           username: ${{ secrets.AWS_USER }}
           key: ${{ secrets.AWS_KEY }}
-          script: |
+          script: | 
             # ls -al /home/ubuntu/next-js
             sh /home/ubuntu/next-js/deploy.sh

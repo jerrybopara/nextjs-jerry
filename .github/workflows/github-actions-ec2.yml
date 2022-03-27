@@ -19,4 +19,4 @@ jobs:
           username: ${{ secrets.AWS_USER }}
           key: ${{ secrets.AWS_KEY }}
           # script: sh deploy.sh
-          script: sh echo "Hii" >> /home/ubuntu/next-js/hello.txt
+          script: echo "Hii" >> /home/ubuntu/next-js/hello.txt

@@ -26,7 +26,7 @@ jobs:
       - name: npm install, build, and test
         run: |
           npm install 
-          npm install pm2
+          npm install pm2 -g
           npm run build
-          /usr/local/bin/pm2 --name next-realworld-example-app start npm -- start
+          pm2 --name next-realworld-example-app start npm -- start
     

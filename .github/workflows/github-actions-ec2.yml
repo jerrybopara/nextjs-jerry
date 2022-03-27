@@ -12,6 +12,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout the files
+        uses: actions/checkout@v2
+
+      - name: Deploy to Jerry - LightSail
+        uses: easingthemes/ssh-deploy@main
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.AWS_KEY }}
+          REMOTE_HOST: ${{ secrets.AWS_HOST }}
+          REMOTE_USER: ${{ secrets.AWS_USER }}
+          TARGET: ${{ secrets.REMOTE_TARGET }}  
+
       - name: executing remote ssh commands using ssh key
         uses: appleboy/ssh-action@master
         with:
@@ -21,6 +32,6 @@ jobs:
           script: |
             whoami
             ls -al
-            sh deploy.sh
+            sh /home/ubuntu/next-js/deploy.sh
           # script: sh deploy.sh
           # script: echo "Hii" >> /home/ubuntu/next-js/hello.txt

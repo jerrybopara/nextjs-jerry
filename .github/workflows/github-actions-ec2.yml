@@ -3,8 +3,9 @@ name: Push-to-EC2-LightSaild
 # Trigger deployment only on push to master branch
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
   deploy:
@@ -31,7 +32,7 @@ jobs:
           key: ${{ secrets.AWS_KEY }}
           script: | 
             # ls -al /home/ubuntu/next-js
-            chown -R ubuntu:ubuntu /home/ubuntu/next-js
+            # chown -R ubuntu:ubuntu /home/ubuntu/next-js
             sh /home/ubuntu/next-js/deploy.sh
 
 

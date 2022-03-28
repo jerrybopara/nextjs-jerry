@@ -23,7 +23,7 @@ jobs:
           REMOTE_USER: ${{ secrets.AWS_USER }}
           TARGET: ${{ secrets.REMOTE_TARGET }}  
 
-      - name: executing remote ssh commands using ssh key
+      - name: Building the App on Remote Server 
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.AWS_HOST }}
@@ -37,5 +37,6 @@ jobs:
             pm2 kill
             echo "Install app dependencies"
             rm -rf node_modules package-lock.json
-            
+            yarn
+
 

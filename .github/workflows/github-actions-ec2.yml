@@ -32,4 +32,10 @@ jobs:
           script: | 
             # ls -al /home/ubuntu/next-js
             chown -R ubuntu:ubuntu /home/ubuntu/next-js
-            sh /home/ubuntu/next-js/deploy.sh
+            # sh /home/ubuntu/next-js/deploy.sh
+            echo "Kill all the running PM2 actions"
+            pm2 kill
+            echo "Install app dependencies"
+            rm -rf node_modules package-lock.json
+            
+

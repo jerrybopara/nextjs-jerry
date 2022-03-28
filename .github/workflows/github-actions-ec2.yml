@@ -83,7 +83,7 @@ jobs:
           key: ${{ secrets.AWS_KEY }}
           script: | 
             # ls -al /home/ubuntu/next-js
-            # chown -R ubuntu:ubuntu /home/ubuntu/next-js
+            chown -R ${{ env.USERNAME }}:${{ env.USERNAME }} /home/${{ env.USERNAME }}/${{ env.REPODIR }}
             sh /home/${{ env.USERNAME }}/${{ env.REPODIR }}/deploy.sh
 
 

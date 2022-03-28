@@ -1,4 +1,4 @@
-name: Push-to-EC2-LightSaild
+name: Build & Deploy Nextjs to Ec2.
 
 # Trigger deployment only on push to master branch
 on:
@@ -8,8 +8,54 @@ on:
     branches: [ main ]
 
 jobs:
+  build: 
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [16.x]
+
+    steps:
+      - name: Checkout the Repository
+        uses: actions/checkout@v2
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with: 
+          node-version: ${{ matrix.node-version }}
+      
+      - name: Install yarn
+        run: npm install -g yarn
+
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+      
+      - uses: actions/cache@v2
+        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+      
+      - uses: actions/cache@v2
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+      
+      - name: Install Deps
+        working-directory: .
+        if: steps.yarn-cache.outputs.cache-hit != 'true'
+        run: yarn install
+      
+      - name: Check Codebase
+        working-directory: .
+        run: yarn build
+
   deploy:
-    name: Deploy to Ec2 
+    needs: build
     runs-on: ubuntu-latest
 
     steps:

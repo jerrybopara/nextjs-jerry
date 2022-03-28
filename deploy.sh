@@ -1,3 +1,8 @@
+#!/bin/bash
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
 echo "Kill all the running PM2 actions"
 pm2 kill
 
@@ -13,8 +18,6 @@ yarn # Install dependencies
 
 echo "Build your app"
 yarn build # build our app for production
-
-yarn global add pm2 # install pm2 to keep next app active forever
 
 echo "Change Permissions."
 chown -R ubuntu:ubuntu /home/ubuntu/next-js

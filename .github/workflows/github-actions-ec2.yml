@@ -7,6 +7,10 @@ on:
   pull_request:
     branches: [ main ]
 
+env:
+  USERNAME: ubuntu
+  REPODIR: nextjs-jerry
+
 jobs:
   build: 
 
@@ -79,7 +83,7 @@ jobs:
           script: | 
             # ls -al /home/ubuntu/next-js
             # chown -R ubuntu:ubuntu /home/ubuntu/next-js
-            sh /home/ubuntu/next-js/deploy.sh
+            sh /home/$USERNAME/$REPODIR/deploy.sh
 
 
 

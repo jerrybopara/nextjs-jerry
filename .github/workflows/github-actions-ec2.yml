@@ -37,6 +37,7 @@ jobs:
             pm2 kill
             echo "Install app dependencies"
             rm -rf node_modules package-lock.json
+            cd /home/ubuntu/next-js 
             yarn
 
 

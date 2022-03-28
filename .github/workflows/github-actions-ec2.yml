@@ -40,6 +40,9 @@ jobs:
             cd /home/ubuntu/next-js 
             yarn
             echo "Build your app"
+            curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
+            source ~/.profile
+            nvm install v12.22.11
             nvm use v12.22.11
             yarn build  
 

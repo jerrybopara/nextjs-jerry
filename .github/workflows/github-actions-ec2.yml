@@ -41,6 +41,6 @@ jobs:
             yarn
             echo "Build your app"
             nvm use v12.22.11
-            yarn build 
+            yarn build  
 
 

@@ -83,7 +83,7 @@ jobs:
           script: | 
             # ls -al /home/ubuntu/next-js
             # chown -R ubuntu:ubuntu /home/ubuntu/next-js
-            sh /home/$USERNAME/$REPODIR/deploy.sh
+            sh /home/${{ env.USERNAME }}/${{ env.REPODIR }}/deploy.sh
 
 
 

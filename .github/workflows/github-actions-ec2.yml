@@ -39,5 +39,7 @@ jobs:
             rm -rf node_modules package-lock.json
             cd /home/ubuntu/next-js 
             yarn
+            echo "Build your app"
+            yarn build 
 
 

@@ -7,7 +7,8 @@ echo "Kill all the running PM2 actions"
 pm2 kill
 
 echo "Jump to app folder"
-cd /home/ubuntu/nextjs-jerry/
+# cd /home/ubuntu/nextjs-jerry/
+cd /home/${{ env.USERNAME }}/${{ env.REPODIR }}/
 
 echo "Update app from Git"
 git pull
@@ -23,4 +24,4 @@ yarn build # build our app for production
 # chown -R ubuntu:ubuntu /home/ubuntu/next-js
 
 echo "Run new PM2 action"
-pm2 start npm --name "nextapp" -- start # start next app 
+pm2 start npm --name "nextjsapp" -- start # start next app 

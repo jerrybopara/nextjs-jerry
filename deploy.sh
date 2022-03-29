@@ -23,4 +23,4 @@ yarn build # build our app for production
 # chown -R ubuntu:ubuntu /home/ubuntu/next-js
 
 echo "Run new PM2 action"
-pm2 start npm --name "nextapp" -- start # start next app
+pm2 start npm --name "nextapp" -- start # start next app 

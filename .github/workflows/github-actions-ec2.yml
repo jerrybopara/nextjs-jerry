@@ -78,10 +78,16 @@ jobs:
           host: ${{ secrets.AWS_HOST }}
           username: ${{ secrets.AWS_USER }}
           key: ${{ secrets.AWS_KEY }}
-          script: | 
-            # chown -R ${{ env.USERNAME }}:${{ env.USERNAME }} /home/${{ env.USERNAME }}/${{ env.REPODIR }}
-            sh /home/${{ env.USERNAME }}/${{ env.REPODIR }}/deploy.sh
-            chown -R ${{ env.USERNAME }}:${{ env.USERNAME }} /home/${{ env.USERNAME }}/${{ env.REPODIR }}
+          shell: bash
+          run: |
+            chmod u+x /home/${{ env.USERNAME }}/${{ env.REPODIR }}/deploy.sh
+            PRODIR="/home/${{ env.USERNAME }}/${{ env.REPODIR }}"
+            echo $PRODIR
+
+          # script: | 
+          #   # chown -R ${{ env.USERNAME }}:${{ env.USERNAME }} /home/${{ env.USERNAME }}/${{ env.REPODIR }}
+          #   sh /home/${{ env.USERNAME }}/${{ env.REPODIR }}/deploy.sh          
+          #   chown -R ${{ env.USERNAME }}:${{ env.USERNAME }} /home/${{ env.USERNAME }}/${{ env.REPODIR }}
 
 
 

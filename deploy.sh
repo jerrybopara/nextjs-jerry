@@ -8,7 +8,7 @@ pm2 kill
 
 echo "Jump to app folder"
 # cd /home/ubuntu/nextjs-jerry/
-cd /home/${{ env.USERNAME }}/${{ env.REPODIR }}/
+cd /home/$USERNAME/$REPODIR/
 
 echo "Update app from Git"
 git pull

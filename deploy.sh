@@ -7,7 +7,9 @@ REPODIR="nextjs-jerry"
 APPNAME="nextjsapp"
 
 echo "Kill all the running PM2 actions"
-pm2 kill
+pm2 stop $APPNAME
+pm2 delete $APPNAME
+# pm2 kill
 
 echo "Jump to app folder"
 # cd /home/ubuntu/nextjs-jerry/

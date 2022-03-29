@@ -3,13 +3,15 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+REPODIR="nextjs-jerry"
+APPNAME="nextjsapp"
+
 echo "Kill all the running PM2 actions"
 pm2 kill
 
 echo "Jump to app folder"
 # cd /home/ubuntu/nextjs-jerry/
-cd $HOME/nextjs-jerry/
-
+cd $HOME/$REPODIR/
 
 echo "Update app from Git"
 git pull
@@ -25,4 +27,4 @@ yarn build # build our app for production
 # chown -R ubuntu:ubuntu /home/ubuntu/next-js
 
 echo "Run new PM2 action"
-pm2 start npm --name "nextjsapp" -- start # start next app 
+pm2 start npm --name "$APPNAME" -- start # start next app 

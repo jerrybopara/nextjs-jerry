@@ -10,7 +10,6 @@ on:
 env:
   USERNAME: ubuntu
   REPODIR: nextjs-jerry
-  APPNAME: nextjsapp
 
 jobs:
   build: 

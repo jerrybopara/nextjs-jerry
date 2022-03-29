@@ -11,6 +11,7 @@ env:
   USERNAME: ubuntu
   REPODIR: nextjs-jerry
   APPNAME: nextjsapp
+
 jobs:
   build: 
     runs-on: ubuntu-latest
@@ -78,16 +79,10 @@ jobs:
           host: ${{ secrets.AWS_HOST }}
           username: ${{ secrets.AWS_USER }}
           key: ${{ secrets.AWS_KEY }}
-          shell: bash
-          run: |
-            chmod u+x /home/${{ env.USERNAME }}/${{ env.REPODIR }}/deploy.sh
-            PRODIR="/home/${{ env.USERNAME }}/${{ env.REPODIR }}"
-            echo $PRODIR
-
-          # script: | 
-          #   # chown -R ${{ env.USERNAME }}:${{ env.USERNAME }} /home/${{ env.USERNAME }}/${{ env.REPODIR }}
-          #   sh /home/${{ env.USERNAME }}/${{ env.REPODIR }}/deploy.sh          
-          #   chown -R ${{ env.USERNAME }}:${{ env.USERNAME }} /home/${{ env.USERNAME }}/${{ env.REPODIR }}
+          script: | 
+            sh /home/${{ env.USERNAME }}/${{ env.REPODIR }}/deploy.sh ${{ env.PRODIR }}
+            env:
+            PRODIR: /home/${{ env.USERNAME }}/${{ env.REPODIR }}/
 
 
 

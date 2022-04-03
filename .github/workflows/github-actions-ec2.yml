@@ -11,12 +11,9 @@ env:
   USERNAME: ubuntu
   REPODIR: nextjs-jerry
 
-
 jobs:
   build: 
-
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
         node-version: [16.x]
@@ -82,9 +79,5 @@ jobs:
           username: ${{ secrets.AWS_USER }}
           key: ${{ secrets.AWS_KEY }}
           script: | 
-            # chown -R ${{ env.USERNAME }}:${{ env.USERNAME }} /home/${{ env.USERNAME }}/${{ env.REPODIR }}
             sh /home/${{ env.USERNAME }}/${{ env.REPODIR }}/deploy.sh
-            chown -R ${{ env.USERNAME }}:${{ env.USERNAME }} /home/${{ env.USERNAME }}/${{ env.REPODIR }}
-
-
-
+          
